@@ -1,5 +1,5 @@
 import { ChakraProvider } from "@chakra-ui/provider";
-import { theme } from "../src/styles/theme"
+import { theme } from "../src/styles/theme";
 
 const customViewports = {
   /** iPhone X */
@@ -36,8 +36,8 @@ const withChakra = (StoryFn) => {
     <ChakraProvider resetCSS theme={theme}>
       <StoryFn />
     </ChakraProvider>
-  )
-}
+  );
+};
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -53,4 +53,4 @@ export const parameters = {
   },
 };
 
-export const decorators = [withChakra]
+export const decorators = [withChakra];
