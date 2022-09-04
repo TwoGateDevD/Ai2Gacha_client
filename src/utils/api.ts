@@ -8,7 +8,8 @@ const LOG_IN = process.env.NEXT_PUBLIC_LOG_IN || "";
 const DEPOSIT = process.env.NEXT_PUBLIC_DEPOSIT || "";
 const PURCHASE = process.env.NEXT_PUBLIC_PURCHASE || "";
 const GET_BALANCE = process.env.NEXT_PUBLIC_GETBALANCE || "";
-const GET_ITEMS = process.env.MEXT_PUBLIC_GETITEMS || "";
+const GET_ITEMS = process.env.NEXT_PUBLIC_GETITEMS || "";
+const GET_MYITEMS = process.env.NEXT_PUBLIC_GETMYITEMS || ""
 
 const signup = async (id: string, password: string): Promise<void> => {
   await client.post(`/Signup?${SIGN_UP}`, {
@@ -72,4 +73,14 @@ const getItems = (): Promise<Array<StockItem>> => {
   });
 };
 
-export { signup, login, deposit, purchase, getBalance, getItems };
+const getMyItems = (): Promise<Array<Item>> => {
+  const id = localStorage.getItem("userId")
+  return new Promise<Array<Item>>((resolve, reject) => {
+    client
+      .get<{items: Array<Item>}>(`/GetMyItems?${GET_MYITEMS}&${id}&event_id=event`)
+      .then((res) => resolve(res.data.items))
+      .catch((err) => reject(err));
+  });
+};
+
+export { signup, login, deposit, purchase, getBalance, getItems, getMyItems };
