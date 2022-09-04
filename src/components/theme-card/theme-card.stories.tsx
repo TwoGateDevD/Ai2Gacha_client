@@ -9,6 +9,7 @@ export default {
   args: {
     theme: "この財布の魅力",
     itemId: "test",
+    itemKindId: "testA",
     bids: 100,
   },
   component: ThemeCard,
