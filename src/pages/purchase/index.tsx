@@ -1,8 +1,8 @@
-import {chakra} from "@chakra-ui/react";
+import { chakra } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { useModal} from "react-hooks-use-modal";
+import { useModal } from "react-hooks-use-modal";
 import { Button } from "../../components/button";
 import { SvgWrapper } from "../../components/svg-wrapper";
 import { deposit, purchase, getBalance } from "../../utils/api";
@@ -17,7 +17,7 @@ const Purchase: NextPage = () => {
     })();
   }, []);
   const router = useRouter();
-  const [Modal, open, close] = useModal('root');
+  const [Modal, open, close] = useModal("root");
   const addDeposit = () => {
     deposit(1000);
   };
@@ -46,19 +46,26 @@ const Purchase: NextPage = () => {
         </chakra.div>
       </chakra.section>
       <Modal>
-          <chakra.div display="flex" flexDirection="column" px="1.5625rem" py="2.8125rem" bgColor="white" borderRadius="1.5625rem">
-            <chakra.p color="black" fontSize="1.625rem">{`利用可能額 ${balance}円`}</chakra.p>
-            <chakra.p color="black" fontSize="1.625rem" my="1.5rem">
-              購入額 100円
-            </chakra.p>
-            <chakra.p color="black" fontSize="1.625rem">{`残高 ${balance - 100}`}</chakra.p>
-            <Button my="1.875rem" isNegative={false} border={false} disable={false} onClick={buy}>
-              購入して開封
-            </Button>
-            <Button isNegative border={false} disable={false} onClick={close}>
-              キャンセル
-            </Button>
-          </chakra.div>
+        <chakra.div
+          display="flex"
+          flexDirection="column"
+          px="1.5625rem"
+          py="2.8125rem"
+          bgColor="white"
+          borderRadius="1.5625rem"
+        >
+          <chakra.p color="black" fontSize="1.625rem">{`利用可能額 ${balance}円`}</chakra.p>
+          <chakra.p color="black" fontSize="1.625rem" my="1.5rem">
+            購入額 100円
+          </chakra.p>
+          <chakra.p color="black" fontSize="1.625rem">{`残高 ${balance - 100}`}</chakra.p>
+          <Button my="1.875rem" isNegative={false} border={false} disable={false} onClick={buy}>
+            購入して開封
+          </Button>
+          <Button isNegative border={false} disable={false} onClick={close}>
+            キャンセル
+          </Button>
+        </chakra.div>
       </Modal>
     </>
   );
