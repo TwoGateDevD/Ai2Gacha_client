@@ -22,7 +22,7 @@ export const Default: Story = {};
 export const Exhibit: Story = {
   args: {
     isExhibit: true,
-    stock: 100,
+    bids: 100,
   },
 };
 export const Possession: Story = {

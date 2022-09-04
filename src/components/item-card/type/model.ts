@@ -6,7 +6,7 @@ export type ItemCardProperties = HTMLChakraProps<"div"> & {
   itemId: string;
   progress: number;
   remaining: number;
-  stock: number;
+  bids: number;
   isExhibit: boolean;
   isPossession: boolean;
 };

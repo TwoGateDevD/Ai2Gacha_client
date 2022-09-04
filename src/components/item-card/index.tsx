@@ -11,7 +11,7 @@ const ItemCard: FC<ItemCardProperties> = ({
   itemId,
   progress,
   remaining,
-  stock,
+  bids,
   isExhibit = false,
   isPossession = false,
   ...rest
@@ -60,7 +60,7 @@ const ItemCard: FC<ItemCardProperties> = ({
               {isExhibit ? "出品中" : "選択"}
             </Button>
           </Link>
-          {isExhibit && <chakra.p fontSize="0.875rem" color="black">{`入札数: ${stock}`}</chakra.p>}
+          {isExhibit && <chakra.p fontSize="0.875rem" color="black">{`入札数: ${bids}`}</chakra.p>}
         </chakra.div>
       </chakra.div>
     </chakra.div>
