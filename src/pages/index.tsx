@@ -1,8 +1,9 @@
 import { chakra } from "@chakra-ui/react";
+import { NextPage } from "next";
 import Link from "next/link";
 import { Button } from "src/components/button";
 
-const Index = () => {
+const Index: NextPage = () => {
   return (
     <chakra.div
       display="flex"
