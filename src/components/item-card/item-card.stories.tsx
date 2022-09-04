@@ -22,11 +22,11 @@ export const Default: Story = {};
 export const Exhibit: Story = {
   args: {
     isExhibit: true,
-    stock: 100
-  }
-}
+    stock: 100,
+  },
+};
 export const Possession: Story = {
   args: {
-    isPossession: true
-  }
-}
+    isPossession: true,
+  },
+};
