@@ -1,25 +1,8 @@
-import { chakra, HTMLChakraProps } from "@chakra-ui/react";
-import type { NextPage } from "next";
-import type { FC } from "react";
-import { Button } from "src/components/button";
+import { chakra } from "@chakra-ui/react";
 import Link from "next/link";
+import { Button } from "src/components/button";
 
-// const GradientText: FC<HTMLChakraProps<"span">> = (chakraProps) => (
-//   <chakra.span
-//     fontSize="6vw"
-//     background="linear-gradient(90deg, #4d62d0, #d152c9 30%, #e6b357)"
-//     backgroundClip="text"
-//     {...chakraProps}
-//   />
-// );
-
-// const Index: NextPage = () => (
-//   <chakra.div height="100vh" display="flex" justifyContent="center" alignItems="center">
-//     <GradientText as="h2">Hello Chakra UI</GradientText>
-//   </chakra.div>
-// );
-
-export default function Index() {
+const Index = () => {
   return (
     <chakra.div
       display="flex"
@@ -35,15 +18,17 @@ export default function Index() {
         height="50vh"
       >
         <Link href="/purchase" passHref>
-          <Button as="a" isNegative={false} border={false} children={"購入"} disable={false} />
+          <Button as="a" isNegative={false} border={false} disable={false}>購入</Button>
         </Link>
         <Link href="/search" passHref>
-          <Button as="a" isNegative={false} border={false} children={"検索"} disable={false} />
+          <Button as="a" isNegative={false} border={false} disable={false}>検索</Button>
         </Link>
         <Link href="/submit" passHref>
-          <Button as="a" isNegative={false} border={false} children={"出品"} disable={false} />
+          <Button as="a" isNegative={false} border={false} disable={false}>出品</Button>
         </Link>
       </chakra.div>
     </chakra.div>
   )
 }
+
+export default Index
