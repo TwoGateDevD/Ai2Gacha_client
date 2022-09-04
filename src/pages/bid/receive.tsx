@@ -7,7 +7,7 @@ import { SvgWrapper } from "src/components/svg-wrapper";
 const receiveResult: NextPage = () => {
     return (
         <chakra.div textAlign="center" height="100vh">
-            <chakra.h1 color="white" paddingTop="190px" paddingBottom="20px" fontSize="30px">出品できました！</chakra.h1>
+            <chakra.h1 color="white" paddingTop="190px" paddingBottom="20px" fontSize="30px">受け取りました！</chakra.h1>
             <SvgWrapper path="/statics/undraw_gift_re_qr17 1.svg" />
             <chakra.div
                 display="flex"
