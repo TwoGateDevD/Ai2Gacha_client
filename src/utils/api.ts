@@ -8,7 +8,7 @@ const LOG_IN = process.env.NEXT_PUBLIC_LOG_IN || "";
 const DEPOSIT = process.env.NEXT_PUBLIC_DEPOSIT || "";
 const PURCHASE = process.env.NEXT_PUBLIC_PURCHASE || "";
 const GET_BALANCE = process.env.NEXT_PUBLIC_GETBALANCE || "";
-const GET_ITEMS = process.env.MEXT_PUBLIC_GETITEMS || "";
+const GET_ITEMS = process.env.NEXT_PUBLIC_GETITEMS || "";
 
 const signup = async (id: string, password: string): Promise<void> => {
   await client.post(`/Signup?${SIGN_UP}`, {
