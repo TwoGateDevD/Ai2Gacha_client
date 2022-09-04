@@ -8,7 +8,7 @@ const LOG_IN = process.env.NEXT_PUBLIC_LOG_IN || "";
 const DEPOSIT = process.env.NEXT_PUBLIC_DEPOSIT || "";
 const PURCHASE = process.env.NEXT_PUBLIC_PURCHASE || "";
 const GET_BALANCE = process.env.NEXT_PUBLIC_GETBALANCE || "";
-const GET_ITEMS = process.env.NEXT_PUBLIC_GETITEMS || "";
+const GET_ITEMS = process.env.MEXT_PUBLIC_GETITEMS || "";
 
 const signup = async (id: string, password: string): Promise<void> => {
   await client.post(`/Signup?${SIGN_UP}`, {
@@ -43,12 +43,12 @@ const purchase = (event_id: string, price: number): Promise<Item> => {
   const user_id = localStorage.getItem("userId")
   return new Promise<Item>((resolve, reject) => {
     client
-      .post<Item>(`/Purchase?${PURCHASE}`, {
+      .post<{items: Item}>(`/Purchase?${PURCHASE}`, {
         user_id,
         event_id,
         price,
       })
-      .then((res) => resolve(res.data))
+      .then((res) => resolve(res.data.items))
       .catch((err) => reject(err));
   });
 };
@@ -66,8 +66,8 @@ const getBalance = (): Promise<number> => {
 const getItems = (): Promise<Array<StockItem>> => {
   return new Promise<Array<StockItem>>((resolve, reject) => {
     client
-      .get<Array<StockItem>>(`/GetItems?${GET_ITEMS}&event_id=event`)
-      .then((res) => resolve(res.data))
+      .get<{items: Array<StockItem>}>(`/GetItems?${GET_ITEMS}&event_id=event`)
+      .then((res) => resolve(res.data.items))
       .catch((err) => reject(err));
   });
 };
