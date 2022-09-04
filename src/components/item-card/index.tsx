@@ -33,7 +33,7 @@ const ItemCard: FC<ItemCardProperties> = ({
       bgColor="white"
       borderRadius="0.5rem"
       display="flex"
-      justifyContent="flex-start"
+      justifyContent={!isExhibit ? "flex-start" : "space-between"}
       {...rest}
     >
       <chakra.img src={imagePath} alt={title} width={120} height={90} objectFit="cover" objectPosition="50% 0" />
