@@ -10,6 +10,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
     if (!localStorage.getItem("userId")) {
       router.push("/start");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <ChakraProvider resetCSS theme={theme}>
