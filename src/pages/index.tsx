@@ -15,7 +15,7 @@ const Index = () => {
         display="flex"
         flexDirection="column"
         justifyContent="space-between"
-        height="50vh"
+        height="35vh"
       >
         <Link href="/purchase" passHref>
           <Button as="a" isNegative={false} border={false} disable={false}>購入</Button>
