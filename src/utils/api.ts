@@ -1,5 +1,5 @@
 import { client } from "../libs/axios";
-import type  {Balance} from "../types/balance";
+import type { Balance } from "../types/balance";
 import type { Item } from "../types/item";
 import type { StockItem } from "../types/stock-item";
 
