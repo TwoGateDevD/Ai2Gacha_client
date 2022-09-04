@@ -1,19 +1,17 @@
-import { useState, useEffect } from "react";
-import { chakra, selector } from "@chakra-ui/react";
+import { chakra } from "@chakra-ui/react";
 import { NextPage } from "next";
-import { ItemCard } from "src/components/item-card";
-import { getMyItems } from "../../utils/api";
-import { Item } from "src/types/item";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 import { Button } from "src/components/button";
+import { ItemCard } from "src/components/item-card";
+import { Item } from "src/types/item";
+import { getMyItems } from "../../utils/api";
 
 const SubmitIndex: NextPage = () => {
     const [items, setItems] = useState<Item[]>([]);
     useEffect(() => {
         (async () => {
             const res = await getMyItems();
-            console.log("test")
-            console.log(res)
             setItems(res);
         })();
     }, []);
@@ -28,7 +26,7 @@ const SubmitIndex: NextPage = () => {
             >
                 {items.map((item: Item) => {
                     return (
-                        <ItemCard type={"submit"} title={`${item.name}`} imagePath={`${item.image_url}`} itemId={`${item.id}`}></ItemCard>
+                        <ItemCard type="submit" title={`${item.name}`} imagePath={`${item.image_url}`} itemId={`${item.id}`} key={`${item.id}`} />
                     )
                 })}
                 <chakra.div
