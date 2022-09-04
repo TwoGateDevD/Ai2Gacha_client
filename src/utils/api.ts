@@ -128,7 +128,7 @@ const boardPost = async (
 const showApplies = (board_id: string): Promise<Array<Item>> => {
   return new Promise<Array<Item>>((resolve, reject) => {
     client
-      .post<{ items: Array<Item> }>(`/SearchApplies?`, {
+      .post<{ items: Array<Item> }>(`/SearchApplies?${SHOW_APPLIES}`, {
         event_id: "event",
         board_id,
       })
